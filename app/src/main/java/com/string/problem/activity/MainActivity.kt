@@ -1,8 +1,10 @@
 package com.string.problem.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -34,6 +36,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         initOldList()
     }
 
+    override fun onResume() {
+        super.onResume()
+        string_input.hideKeyboard()
+    }
+
     private fun initData() {
         recentStringList = ArrayList()
         oldStringList = ArrayList()
@@ -62,7 +69,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.add_value -> addValue()
+            R.id.add_value -> {
+                addValue()
+                initClearEditText()
+            }
         }
     }
 
@@ -88,5 +98,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             oldStringList.addAll(it)
             oldAdapter.notifyDataSetChanged()
         })
+    }
+
+    private fun initClearEditText() {
+        string_input.text.clear()
+        string_input.hideKeyboard()
+    }
+
+    private fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 }
