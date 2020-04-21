@@ -3,9 +3,13 @@ package com.string.problem.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.string.problem.model.DoubleLinkListNode
 import com.string.problem.model.LinkedListHelper
 import com.string.problem.utils.Constant
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     var mutableOlderStackData = MutableLiveData<ArrayList<String>>()
@@ -18,9 +22,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var olderLinkedListHelper = LinkedListHelper()
 
     fun addStringValueToQueue(stringValue: String) {
-        insertElementInCache(stringValue)
-        getRecentList()
-        getOldList()
+        viewModelScope.launch(Dispatchers.IO) {
+            insertElementInCache(stringValue)
+            withContext(Dispatchers.Main) {
+                getRecentList()
+                getOldList()
+            }
+        }
     }
 
     private fun getRecentList() {
