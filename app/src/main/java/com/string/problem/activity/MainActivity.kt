@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         initAdapter()
         initRecentList()
         initOldList()
-        //
-        mainViewModel.addList()
     }
 
     private fun initData() {
