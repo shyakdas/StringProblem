@@ -16,25 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/older_text_view_one"
-        style="@style/CustomTextViewStyle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/older_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/recent_string_area"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/older_text_view_two"
-        style="@style/CustomTextViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/recent_string_area"
-        app:layout_constraintTop_toBottomOf="@id/older_text_view_one" />
-
-    <TextView
-        android:id="@+id/older_text_view_three"
-        style="@style/CustomTextViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/recent_string_area"
-        app:layout_constraintTop_toBottomOf="@id/older_text_view_two" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,18 +16,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/recent_text_view_one"
-        style="@style/CustomTextViewStyle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recent_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/recent_string_area"
-        app:layout_constraintTop_toTopOf="@id/recent_text_view_one" />
-
-    <TextView
-        android:id="@+id/recent_text_view_two"
-        style="@style/CustomTextViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/recent_string_area"
-        app:layout_constraintTop_toBottomOf="@id/recent_text_view_one" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

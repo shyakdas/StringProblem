@@ -3,4 +3,5 @@
     <string name="add_value">Add Value</string>
     <string name="recently_used_string">Recently used string</string>
     <string name="stack_with_older_string">Stack with older string</string>
+    <string name="empty_string">Please enter value to add</string>
 </resources>
