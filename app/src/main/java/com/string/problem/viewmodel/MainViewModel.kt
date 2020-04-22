@@ -73,6 +73,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 //        else {
 //           // replaceKey(string)
 //        }
+       // updateMostRecent(cache[string])
     }
 
     private fun insertElementInOldCache(string: String) {
