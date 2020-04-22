@@ -68,10 +68,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 currentSize++
             }
             cache[string] = DoubleLinkListNode(string)
-        } else {
-            replaceKey(string)
+            updateMostRecent(cache[string])
         }
-        updateMostRecent(cache[string])
+//        else {
+//           // replaceKey(string)
+//        }
     }
 
     private fun insertElementInOldCache(string: String) {
